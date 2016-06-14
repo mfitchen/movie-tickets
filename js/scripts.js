@@ -5,6 +5,7 @@ function Ticket(movie, time, age) {
   this.age = age;
 }
 
+
 // Contact.prototype.fullName = function() {
 //   return this.firstName + " " + this.lastName;
 // };
@@ -31,6 +32,28 @@ $(document).ready(function() {
     var inputtedAge = $("input:radio[name=age]:checked").val();
     var newTicket = new Ticket(inputtedMovieName, inputtedMovieTime, inputtedAge);
 
+    var price = 1;
+
+    if(inputtedMovieName === "Finding Dory" || inputtedMovieName === "Zootopia" || inputtedMovieName === "X-Men: Apocalypse") {
+      price *= 2;
+    } else {
+      price *=1;
+    };
+
+    if(inputtedMovieTime === "11am" || inputtedMovieTime === "12pm" || inputtedMovieTime === "1pm" || inputtedMovieTime === "2pm" || inputtedMovieTime === "3pm" || inputtedMovieTime === "4pm") {
+      price *= 1;
+    } else {
+      price *=2;
+    };
+
+    if(inputtedAge === "Senior") {
+      price *= 2;
+    } else if(inputtedAge === "Child") {
+      price *=1;
+    } else {
+      price *=3;
+    };
+
     $("ul#ticketPrice").append("<li><span class='ticketName'>" + newTicket.movie + "</span></li>");
 
     $("#ticketPrice").last().click(function() {
@@ -39,7 +62,7 @@ $(document).ready(function() {
       $(".movie-name").text(newTicket.movie);
       $(".movie-time").text(newTicket.time);
       $(".purchaser-age").text(newTicket.age);
-      $(".ticket-price").text(newTicket.fullPrice());
+      $(".ticket-price").text(price);
     });
 
     $(".new-address").not("#new-address").hide();
