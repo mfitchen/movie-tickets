@@ -6,9 +6,9 @@ function Ticket(movie, time, age) {
 }
 
 
-Ticket.prototype.moviePoster = function() {
-  return this.firstName + " " + this.lastName;
-};
+// Ticket.prototype.moviePoster = function() {
+//   return this.firstName + " " + this.lastName;
+// };
 
 // Address.prototype.fullAddress = function() {
 //   return this.addressType + ": " + this.street + ", " + this.city + ", " + this.state;
