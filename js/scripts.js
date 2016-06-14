@@ -6,14 +6,14 @@ function Ticket(movie, time, age) {
 }
 
 
-// Contact.prototype.fullName = function() {
-//   return this.firstName + " " + this.lastName;
-// };
-//
+Ticket.prototype.moviePoster = function() {
+  return this.firstName + " " + this.lastName;
+};
+
 // Address.prototype.fullAddress = function() {
 //   return this.addressType + ": " + this.street + ", " + this.city + ", " + this.state;
 // }
-//
+
 // function resetFields() {
 //     $("selcet#movieName").val("");
 //     $("input#new-last-name").val("");
@@ -31,6 +31,18 @@ $(document).ready(function() {
     var inputtedMovieTime = $("select#movie-time").val();
     var inputtedAge = $("input:radio[name=age]:checked").val();
     var newTicket = new Ticket(inputtedMovieName, inputtedMovieTime, inputtedAge);
+
+    var poster;
+
+    if(inputtedMovieName === "Finding Dory") {
+      poster = "finding-dory.jpg";
+    } else if (inputtedMovieName === "Zootopia") {
+      poster = "zootopia.jpg";
+    } else if (inputtedMovieName === "X-Men: Apocalypse") {
+      poster = "x-men.jpg";
+    } else {
+      poster = "deadpool.jpg";
+    };
 
     var price = 1;
 
@@ -58,7 +70,7 @@ $(document).ready(function() {
 
     $("#ticketPrice").last().click(function() {
       $("#show-ticket").show();
-      $("#show-ticket h2").text(newTicket.movie);
+      $("#show-ticket h2").html('<img src="img/' + poster + '">');
       $(".movie-name").text(newTicket.movie);
       $(".movie-time").text(newTicket.time);
       $(".purchaser-age").text(newTicket.age);

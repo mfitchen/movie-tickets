@@ -10,3 +10,7 @@
 .ticketName:hover {
   text-decoration: underline;
 }
+
+img {
+  width: 250px;
+}
