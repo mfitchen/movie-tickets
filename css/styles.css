@@ -1,0 +1,12 @@
+#show-ticket {
+  display: none;
+}
+
+.ticketName {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.ticketName:hover {
+  text-decoration: underline;
+}

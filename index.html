@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Movie Tickets</title>
+  </head>
+  <body>
+    <div class="container">
+     <h1>Movie Tickets</h1>
+
+     <div class="row">
+        <div class="col-md-6">
+          <h2>Movie</h2>
+          <form id="new-ticket">
+            <div class="new-ticket">
+              <div class="form-group">
+                <label for="movieName">Movie:</label>
+                <select class="form-control" id="movie-name">
+                  <option value="Zootopia">Zootopia</option>
+                  <option value="Deadpool">Deadpool</option>
+                  <option value="Finding Dory">Finding Dory</option>
+                  <option value="X-Men: Apocalypse">X-Men: Apocalypse</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="movieTime">Time:</label>
+                <select class="form-control" id="movie-time">
+                  <option value="11am">11 AM</option>
+                  <option value="12pm">12 PM</option>
+                  <option value="1pm">1 PM</option>
+                  <option value="2pm">2 PM</option>
+                  <option value="3pm">3 PM</option>
+                  <option value="4pm">4 PM</option>
+                  <option value="5pm">5 PM</option>
+                  <option value="6pm">6 PM</option>
+                  <option value="7pm">7 PM</option>
+                  <option value="8pm">8 PM</option>
+                  <option value="9pm">9 PM</option>
+                  <option value="10pm">10 PM</option>
+                  <option value="11pm">11 PM</option>
+                </select>
+              </div>
+              <label for="purchaserAge">Age:</label>
+              <div class="form-group radio" id="purchaser-age">
+                <label>
+                    <input type="radio" name="age" value="Senior">
+                    Senior (65+)
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="age" value="Adult" checked>
+                    Adult
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="age" value="Child">
+                    Child (12>)
+                  </label>
+              </div>
+            </div>
+            <button type="submit" class="btn">Ticket Price</button>
+          </form>
+
+          <h2>Ticket:</h2>
+          <ul id="ticketPrice">
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <div id="show-ticket">
+            <h2></h2>
+            <p>Movie name: <strong><span class="movie-name"></span></strong></p>
+            <p>Movie time: <strong><span class="movie-time"></span></strong></p>
+            <p>Purchaser age: <strong><span class="purchaser-age"></span></strong></</p>
+            <p>Ticket price: <strong>$<span class="ticket-price"></span></strong></</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
