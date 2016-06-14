@@ -5,22 +5,31 @@ function Ticket(movie, time, age) {
   this.age = age;
 }
 
+Ticket.prototype.price = function() {
+  var price = 1;
 
-// Ticket.prototype.moviePoster = function() {
-//   return this.firstName + " " + this.lastName;
-// };
+  if(this.movie === "Finding Dory" || this.movie === "Zootopia" || this.movie === "X-Men: Apocalypse") {
+    price *= 2;
+  } else {
+    price *=1;
+  };
 
-// Address.prototype.fullAddress = function() {
-//   return this.addressType + ": " + this.street + ", " + this.city + ", " + this.state;
-// }
+  if(this.time === "11am" || this.time === "12pm" || this.time === "1pm" || this.time === "2pm" || this.time === "3pm" || this.time === "4pm") {
+    price *= 1;
+  } else {
+    price *=2;
+  };
 
-// function resetFields() {
-//     $("selcet#movieName").val("");
-//     $("input#new-last-name").val("");
-//     $("input.new-street").val("");
-//     $("input.new-city").val("");
-//     $("input.new-state").val("");
-// }
+  if(this.age === "Senior") {
+    price *= 2;
+  } else if(this.age === "Child") {
+    price *= 1;
+  } else {
+    price *= 3;
+  };
+
+  return price;
+};
 
 // user interface logic
 $(document).ready(function() {
@@ -44,28 +53,6 @@ $(document).ready(function() {
       poster = "deadpool.jpg";
     };
 
-    var price = 1;
-
-    if(inputtedMovieName === "Finding Dory" || inputtedMovieName === "Zootopia" || inputtedMovieName === "X-Men: Apocalypse") {
-      price *= 2;
-    } else {
-      price *=1;
-    };
-
-    if(inputtedMovieTime === "11am" || inputtedMovieTime === "12pm" || inputtedMovieTime === "1pm" || inputtedMovieTime === "2pm" || inputtedMovieTime === "3pm" || inputtedMovieTime === "4pm") {
-      price *= 1;
-    } else {
-      price *=2;
-    };
-
-    if(inputtedAge === "Senior") {
-      price *= 2;
-    } else if(inputtedAge === "Child") {
-      price *=1;
-    } else {
-      price *=3;
-    };
-
     $("ul#ticketPrice").append("<li><span class='ticketName'>" + newTicket.movie + "</span></li>");
 
     $("#ticketPrice").last().click(function() {
@@ -74,7 +61,7 @@ $(document).ready(function() {
       $(".movie-name").text(newTicket.movie);
       $(".movie-time").text(newTicket.time);
       $(".purchaser-age").text(newTicket.age);
-      $(".ticket-price").text(price);
+      $(".ticket-price").text(newTicket.price());
     });
 
     $(".new-address").not("#new-address").hide();
